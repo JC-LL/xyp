@@ -80,7 +80,7 @@ module XYP
     def on_button_info_clicked
       about = Gtk::AboutDialog.new
       about.set_program_name "xyp"
-      about.set_version "0.0.1"
+      about.set_version VERSION
       about.set_copyright "(c) Jean-Christophe Le Lann"
       about.set_comments "Ruby GTK3 XY Plotter"
       about.set_website "http://www.jcll.fr"
@@ -118,7 +118,7 @@ module XYP
       if @dataset
         min_x,max_x=@dataset.keys.minmax
         min_y,max_y=@dataset.values.minmax
-    
+
         center_x=min_x+(max_x-min_x).abs/2
         center_y=min_y+(max_y-min_y).abs/2
         center=Point.new(center_x,center_y)
