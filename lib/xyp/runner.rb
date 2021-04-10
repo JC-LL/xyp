@@ -7,6 +7,11 @@ require_relative "gui"
 module XYP
 
   class Runner
+    attr_accessor :options
+
+    def initialize
+      @options={}
+    end
 
     def self.run *arguments
       new.run(arguments)

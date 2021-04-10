@@ -118,9 +118,9 @@ module XYP
       if @dataset
         min_x,max_x=@dataset.keys.minmax
         min_y,max_y=@dataset.values.minmax
-
-        center_x=(max_x.abs-min_x.abs)/2
-        center_y=(max_y.abs-min_y.abs)/2
+    
+        center_x=min_x+(max_x-min_x).abs/2
+        center_y=min_y+(max_y-min_y).abs/2
         center=Point.new(center_x,center_y)
 
         diff_x=max_x-min_x
@@ -128,6 +128,7 @@ module XYP
         dims=[diff_x,diff_y]
 
         @view=View.new(center,dims)
+
         @plot.set_view @view
         redraw
       end
